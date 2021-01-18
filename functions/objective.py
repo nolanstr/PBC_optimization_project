@@ -1,10 +1,10 @@
 import numpy as np
 import sys
 sys.path.append('~/Documents/PBC/PBC_optimzation_project/functions')
-from scipy import optimize
 
-from check_volume import check_volume
-from compute_cost import compute_cost
+from .check_volume import check_volume
+from .compute_cost import compute_cost
+
 
 def objective(params):
     '''
@@ -17,10 +17,3 @@ def objective(params):
         return np.inf
 
 
-x_0 = np.array([10., 0.1])
-mk = {'method':'Nelder-Mead'}
-
-
-op_values = optimize.basinhopping(objective, x_0, minimizer_kwargs=mk, 
-                                    niter=500)
-import pdb;pdb.set_trace()
